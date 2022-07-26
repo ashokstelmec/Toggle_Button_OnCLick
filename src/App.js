@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
 
 function App() {
+  const [source, setSource] = React.useState("Arjun");
+
+  const handleClick = () => {
+    if (source === "Arjun") {
+      setSource("Arun");
+    } else if (source === "Arun") {
+      setSource("Ashok");
+    } else if (source === "Ashok"){
+      setSource("Rita");
+    }else {
+      setSource('Arjun')
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <i style={{ fontWeight: "bold", fontSize: "4rem" }}> {source}</i>
+      <br />
+      <br />
+      <button onClick={handleClick}>Update</button>
     </div>
   );
 }
